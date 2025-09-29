@@ -1,0 +1,32 @@
+body {
+    font-family: Arial;
+    background-image: url("https://i.ytimg.com/vi/yEiZ7OpVGz0/maxresdefault.jpg");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.select_tipos h1 {
+    font-size: 50px;
+}
+
+.home {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black; 
+    padding: 20px; 
+    background-color: rgba(255, 181, 181, 0.9); 
+    border-radius: 8px; 
+}
+
+.home h1 {
+    font-size: 30;
+}

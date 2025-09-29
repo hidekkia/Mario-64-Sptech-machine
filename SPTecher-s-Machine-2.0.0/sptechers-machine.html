@@ -1,0 +1,86 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+    <link  rel="stylesheet" href="machine.css">
+</head>
+
+
+    <body id="teste">
+        <div class="home">
+            <div class="select_tipos">
+            <h1>SPTecher's Machine</h1>
+            <select id="selecionar_tipo" onchange="tipo_selecionado()">
+                <option value="decimal">Decimal</option>
+                <option value="octal">Octal</option>
+                <option value="hexadecimal">Hexadecimal</option>
+                <option value="binario">Binário</option>
+                <option disabled selected value="">Selecione uma Opção</option>
+            </select>
+        <div id="input_boxes"></div>
+        </div>
+    </body>
+
+
+    <script>
+
+        function tipo_selecionado() {
+            var tipo = selecionar_tipo.value;
+            var botao = `<button onclick="converter()">Converter:</button>`
+            demo = `<h4 id=demo1></h4><h4 id=demo2></h4><h4 id=demo3></h4>`
+
+            if (tipo == "decimal") {
+                input_boxes.innerHTML = `<h3> Digite um número decimal: </h3> <input id="input_valor" placeholder="Ex: 100"></input> <br>` + botao + demo
+            } else if (tipo == "octal") {
+                input_boxes.innerHTML = `<h3> Digite um número octal: </h3> <input id="input_valor" placeholder="Ex: 1743"></input> <br>` + botao + demo
+            } else if (tipo == "hexadecimal") {
+                input_boxes.innerHTML = `<h3> Digite um número hexadecimal: </h3> <input id="input_valor" placeholder="Ex: ADB1894"></input> <br>` + botao + demo
+            } else if (tipo == "binario") {
+                input_boxes.innerHTML = `<h3> Digite um número Binário: </h3> <input id="input_valor" placeholder="Ex: 010010"></input> <br>` + botao + demo
+            }
+        }
+
+        function converter() {
+            var tipo = selecionar_tipo.value;
+            if (tipo == "decimal") {
+                var decimal = Number(input_valor.value);
+
+                demo1.innerHTML = `Octal: ${decimal.toString(8)}`;
+                demo2.innerHTML = `Hexadecimal: ${decimal.toString(16)}`;
+                demo3.innerHTML = `Binário: ${decimal.toString(2)}`;
+            } else if (tipo == "octal") {
+                var octa_pra_decimal = parseInt(input_valor.value, 8);
+                var decimal_hexa = octa_pra_decimal.toString(16);
+                var decimal_bin = octa_pra_decimal.toString(2);
+
+                demo1.innerHTML = `Decimal: ${octa_pra_decimal}`;
+                demo2.innerHTML = `Hexadecimal: ${decimal_hexa}`;
+                demo3.innerHTML = `Binário: ${decimal_bin}`;
+            } else if (tipo == "hexadecimal") {
+                var hexa_pra_decimal = parseInt(input_valor.value, 16);
+                var decimal_octa = hexa_pra_decimal.toString(8);
+                var decimal_bin = hexa_pra_decimal.toString(2);
+
+                demo1.innerHTML = `Decimal: ${hexa_pra_decimal}`;
+                demo2.innerHTML = `Octal: ${decimal_octa}`;
+                demo3.innerHTML = `Binário: ${decimal_bin}`;
+            } else if (tipo == "binario") {
+                var bin_pra_decimal = parseInt(input_valor.value, 2);
+                var decimal_octa = bin_pra_decimal.toString(8);
+                var decimal_hexa = bin_pra_decimal.toString(16);
+
+                demo1.innerHTML = `Decimal: ${bin_pra_decimal}`;
+                demo2.innerHTML = `Octal: ${decimal_octa}`;
+                demo3.innerHTML = `Hexadecimal: ${decimal_hexa}`;
+            }
+
+            
+        }
+    </script>
+</html>
